@@ -1,490 +1,626 @@
-<!DOCTYPE html>
-<html lang="en">
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --dark: #111827;
+    --text: #374151;
+    --muted: #6b7280;
+    --background: #f8fafc;
+    --white: #ffffff;
+    --border: #e5e7eb;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar {
+    width: 100%;
+    padding: 18px 7%;
+
+    background: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid var(--border);
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--dark);
+}
+
+.logo span {
+    color: var(--primary);
+}
+
+.navbar nav {
+    display: flex;
+    gap: 28px;
+}
+
+.navbar nav a {
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.navbar nav a:hover {
+    color: var(--primary);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    max-width: 1150px;
+    min-height: 82vh;
+
+    margin: auto;
+    padding: 80px 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-<head>
-    <meta charset="UTF-8">
+    gap: 80px;
+}
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+.hero-content {
+    flex: 1;
+    max-width: 650px;
+}
 
-    <meta name="description"
-        content="Asmita Ghogare - MSc IMCA Student and Aspiring Python Developer Portfolio">
+.eyebrow {
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 14px;
+}
 
-    <meta name="author" content="Asmita Ghogare">
+.hero h1 {
+    font-size: 58px;
+    line-height: 1.1;
+    color: var(--dark);
+    margin-bottom: 20px;
+}
 
-    <title>Asmita Ghogare | Aspiring Python Developer</title>
+.hero h1 span {
+    color: var(--primary);
+}
 
-    <!-- Connect CSS -->
-    <link rel="stylesheet" href="style.css">
-</head>
+.hero h2 {
+    font-size: 25px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 20px;
+}
 
+.hero-description {
+    color: var(--muted);
+    font-size: 17px;
+    max-width: 600px;
+    margin-bottom: 30px;
+}
 
-<body>
 
-    <!-- ================= NAVBAR ================= -->
+/* =========================================================
+   PROFILE PHOTO
+========================================================= */
 
-    <header class="navbar">
+.hero-image {
+    flex-shrink: 0;
 
-        <div class="logo">
-            AG<span>.</span>
-        </div>
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#resume">Resume</a>
-            <a href="#contact">Contact</a>
-        </nav>
+.profile-photo {
+    width: 240px;
+    height: 240px;
 
-    </header>
+    border-radius: 50%;
 
+    object-fit: cover;
+    object-position: center;
 
-    <!-- ================= HERO SECTION ================= -->
+    border: 6px solid white;
 
-    <section id="home" class="hero">
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.15);
+}
 
-        <div class="hero-content">
 
-            <p class="eyebrow">
-                ASPIRING PYTHON DEVELOPER • MSc IMCA STUDENT
-            </p>
+/* =========================================================
+   BUTTONS
+========================================================= */
 
-            <h1>
-                Hi, I'm <span>Asmita Ghogare</span>
-            </h1>
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
 
-            <h2>
-                Building practical applications with Python.
-            </h2>
+.btn {
+    display: inline-block;
 
-            <p class="hero-description">
-                I am an MSc Industrial Mathematics and Computer Applications
-                student and an aspiring Python Developer. I enjoy problem-solving,
-                data processing, software development, and building practical
-                applications using Python.
-            </p>
+    padding: 12px 24px;
 
-            <div class="hero-buttons">
+    border-radius: 8px;
 
-                <a href="#projects" class="btn primary-btn">
-                    View My Projects
-                </a>
+    font-weight: 600;
 
-                <a href="#contact" class="btn secondary-btn">
-                    Contact Me
-                </a>
+    transition: 0.3s;
+}
 
-            </div>
+.primary-btn {
+    background: var(--primary);
+    color: white;
+}
 
-        </div>
+.primary-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
 
+.secondary-btn {
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
 
-        <!-- ================= PROFILE PHOTO ================= -->
+.secondary-btn:hover {
+    background: var(--primary);
+    color: white;
+}
 
-        <div class="hero-image">
 
-            <img
-                src="WhatsApp Image 2026-07-20 at 7.21.32 PM.jpeg"
-                alt="Asmita Ghogare Profile Photo"
-                class="profile-photo">
+/* =========================================================
+   SECTIONS
+========================================================= */
 
-        </div>
+.section {
+    max-width: 1150px;
+    margin: auto;
 
-    </section>
+    padding: 90px 7%;
+}
 
+.section-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
 
-    <!-- ================= ABOUT ================= -->
+.section-heading h2 {
+    font-size: 36px;
+    color: var(--dark);
+    margin-bottom: 12px;
+}
 
-    <section id="about" class="section">
+.section-heading p {
+    color: var(--muted);
+}
 
-        <div class="section-heading">
 
-            <p class="eyebrow">
-                ABOUT ME
-            </p>
+/* =========================================================
+   ABOUT
+========================================================= */
 
-            <h2>
-                Learning, Building and Growing
-            </h2>
+.about-content {
+    max-width: 800px;
+    margin: auto;
 
-        </div>
+    background: white;
 
+    padding: 35px;
 
-        <div class="about-content">
+    border-radius: 12px;
 
-            <p>
-                I am currently pursuing an MSc in Industrial Mathematics and
-                Computer Applications. I am interested in Python development,
-                software development, data processing, databases, and artificial
-                intelligence.
-            </p>
+    border: 1px solid var(--border);
 
-            <p>
-                I enjoy solving programming problems and applying my knowledge
-                to practical projects. I am continuously strengthening my Python,
-                problem-solving, data structures, SQL, and software development
-                skills through hands-on projects and learning.
-            </p>
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+}
 
-        </div>
+.about-content p {
+    margin-bottom: 18px;
+}
 
-    </section>
+.about-content p:last-child {
+    margin-bottom: 0;
+}
 
 
-    <!-- ================= VIDEO INTRODUCTION ================= -->
+/* =========================================================
+   VIDEO
+========================================================= */
 
-    <section id="video" class="section video-section">
+.video-section {
+    text-align: center;
+}
 
-        <div class="section-heading">
+.video-container {
+    max-width: 850px;
+    margin: auto;
+}
 
-            <p class="eyebrow">
-                VIDEO INTRODUCTION
-            </p>
+.video-container video {
+    width: 100%;
+    max-height: 480px;
 
-            <h2>
-                Get to Know Me
-            </h2>
+    display: block;
 
-            <p>
-                A short introduction about my background,
-                interests, skills, and journey as a developer.
-            </p>
+    border-radius: 12px;
 
-        </div>
+    background: black;
 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
 
-        <div class="video-container">
 
-            <video controls preload="metadata">
+/* =========================================================
+   SKILLS
+========================================================= */
 
-                <source
-                    src="Screen Recording 2026-08-16 162415.mp4"
-                    type="video/mp4">
+.skills-grid {
+    max-width: 900px;
+    margin: auto;
 
-                Your browser does not support the video element.
+    display: grid;
 
-            </video>
+    grid-template-columns: repeat(4, 1fr);
 
-        </div>
+    gap: 16px;
+}
 
-    </section>
+.skill-card {
+    background: white;
 
+    padding: 17px 10px;
 
-    <!-- ================= SKILLS ================= -->
+    text-align: center;
 
-    <section id="skills" class="section">
+    border-radius: 10px;
 
-        <div class="section-heading">
+    border: 1px solid var(--border);
 
-            <p class="eyebrow">
-                TECHNICAL SKILLS
-            </p>
+    font-weight: 600;
 
-            <h2>
-                Technologies I Work With
-            </h2>
+    transition: 0.3s;
+}
 
-        </div>
+.skill-card:hover {
+    color: var(--primary);
 
+    border-color: var(--primary);
 
-        <div class="skills-grid">
+    transform: translateY(-4px);
 
-            <div class="skill-card">Python</div>
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
 
-            <div class="skill-card">Java</div>
 
-            <div class="skill-card">C++</div>
+/* =========================================================
+   PROJECTS
+========================================================= */
 
-            <div class="skill-card">SQL</div>
+.projects-grid {
+    display: grid;
 
-            <div class="skill-card">DBMS</div>
+    grid-template-columns: repeat(2, 1fr);
 
-            <div class="skill-card">Data Structures</div>
+    gap: 25px;
+}
 
-            <div class="skill-card">OOP</div>
+.project-card {
+    background: white;
 
-            <div class="skill-card">Flask</div>
+    padding: 30px;
 
-            <div class="skill-card">SQLite</div>
+    border-radius: 12px;
 
-            <div class="skill-card">Machine Learning</div>
+    border: 1px solid var(--border);
 
-            <div class="skill-card">Pandas</div>
+    transition: 0.3s;
+}
 
-            <div class="skill-card">Git</div>
+.project-card:hover {
+    transform: translateY(-5px);
 
-            <div class="skill-card">GitHub</div>
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
 
-            <div class="skill-card">HTML & CSS</div>
+.project-card h3 {
+    color: var(--dark);
 
-        </div>
+    font-size: 22px;
 
-    </section>
+    margin-bottom: 12px;
+}
 
+.project-card p {
+    color: var(--muted);
 
-    <!-- ================= PROJECTS ================= -->
+    margin-bottom: 15px;
+}
 
-    <section id="projects" class="section projects-section">
+.project-card .tech {
+    color: var(--primary);
 
-        <div class="section-heading">
+    font-size: 14px;
 
-            <p class="eyebrow">
-                FEATURED PROJECTS
-            </p>
+    font-weight: 600;
+}
 
-            <h2>
-                Projects I've Worked On
-            </h2>
+.project-links {
+    margin-top: 15px;
+}
 
-        </div>
+.project-links a {
+    color: var(--primary);
 
+    font-weight: 700;
+}
 
-        <div class="projects-grid">
+.project-links a:hover {
+    text-decoration: underline;
+}
 
 
-            <!-- ================= PROJECT 1 ================= -->
+/* =========================================================
+   RESUME
+========================================================= */
 
-            <article class="project-card">
+.resume-section {
+    text-align: center;
 
-                <h3>
-                    Smart Study Planner
-                </h3>
+    background: white;
 
-                <p>
-                    A web application designed to help students manage study
-                    schedules, organize tasks, and plan their learning
-                    activities efficiently.
-                </p>
+    border-radius: 15px;
+}
 
-                <p class="tech">
-                    Python • Flask • SQLite • HTML • CSS
-                </p>
+.resume-section .btn {
+    margin-top: 10px;
+}
 
-                <div class="project-links">
 
-                    <a
-                        href="YOUR-SMART-STUDY-PLANNER-GITHUB-LINK"
-                        target="_blank"
-                        rel="noopener noreferrer">
-                        GitHub
-                    </a>
+/* =========================================================
+   CONTACT
+========================================================= */
 
-                </div>
+.contact-section {
+    text-align: center;
+}
 
-            </article>
+.contact-links {
+    display: flex;
 
+    justify-content: center;
 
-            <!-- ================= PROJECT 2 ================= -->
+    align-items: center;
 
-            <article class="project-card">
+    gap: 15px;
 
-                <h3>
-                    SQL Query Validator
-                </h3>
+    flex-wrap: wrap;
+}
 
-                <p>
-                    A Python-based project designed to analyze and validate
-                    SQL queries, helping identify basic query and syntax-related
-                    issues.
-                </p>
+.contact-links a {
+    padding: 12px 22px;
 
-                <p class="tech">
-                    Python • SQL • DBMS
-                </p>
+    border: 1px solid var(--primary);
 
-                <div class="project-links">
+    border-radius: 8px;
 
-                    <a
-                        href="YOUR-SQL-QUERY-VALIDATOR-GITHUB-LINK"
-                        target="_blank"
-                        rel="noopener noreferrer">
-                        GitHub
-                    </a>
+    color: var(--primary);
 
-                </div>
+    font-weight: 600;
 
-            </article>
+    transition: 0.3s;
+}
 
+.contact-links a:hover {
+    background: var(--primary);
 
-            <!-- ================= PROJECT 3 ================= -->
+    color: white;
+}
 
-            <article class="project-card">
 
-                <h3>
-                    Diabetes Prediction
-                </h3>
+/* =========================================================
+   FOOTER
+========================================================= */
 
-                <p>
-                    A machine learning application that predicts diabetes
-                    risk based on relevant input features and provides
-                    predictions through an interactive application.
-                </p>
+footer {
+    text-align: center;
 
-                <p class="tech">
-                    Python • Machine Learning • Pandas • Streamlit
-                </p>
+    padding: 25px;
 
-                <div class="project-links">
+    background: var(--dark);
 
-                    <a
-                        href="YOUR-DIABETES-PREDICTION-GITHUB-LINK"
-                        target="_blank"
-                        rel="noopener noreferrer">
-                        GitHub
-                    </a>
+    color: #d1d5db;
 
-                </div>
+    font-size: 14px;
+}
 
-            </article>
 
+/* =========================================================
+   TABLET
+========================================================= */
 
-            <!-- ================= PROJECT 4 ================= -->
+@media (max-width: 900px) {
 
-            <article class="project-card">
+    .hero {
+        gap: 40px;
+        padding: 70px 6%;
+    }
 
-                <h3>
-                    Image Encryption
-                </h3>
+    .hero h1 {
+        font-size: 46px;
+    }
 
-                <p>
-                    A Python-based cryptography project that demonstrates
-                    image encryption techniques for protecting image data
-                    using encryption algorithms.
-                </p>
+    .profile-photo {
+        width: 200px;
+        height: 200px;
+    }
 
-                <p class="tech">
-                    Python • Cryptography • Image Processing
-                </p>
+    .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
 
-                <div class="project-links">
 
-                    <a
-                        href="YOUR-IMAGE-ENCRYPTION-GITHUB-LINK"
-                        target="_blank"
-                        rel="noopener noreferrer">
-                        GitHub
-                    </a>
+/* =========================================================
+   MOBILE
+========================================================= */
 
-                </div>
+@media (max-width: 700px) {
 
-            </article>
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
 
+        padding: 15px 5%;
+    }
 
-        </div>
+    .navbar nav {
+        gap: 15px;
 
-    </section>
+        justify-content: center;
 
+        flex-wrap: wrap;
+    }
 
-    <!-- ================= RESUME ================= -->
+    .navbar nav a {
+        font-size: 13px;
+    }
 
-    <section id="resume" class="section resume-section">
+    .hero {
+        min-height: auto;
 
-        <div class="section-heading">
+        padding: 60px 6%;
 
-            <p class="eyebrow">
-                RESUME
-            </p>
+        flex-direction: column-reverse;
 
-            <h2>
-                My Professional Profile
-            </h2>
+        text-align: center;
 
-            <p>
-                View my resume to learn more about my education,
-                technical skills, projects, and experience.
-            </p>
+        gap: 35px;
+    }
 
-        </div>
+    .hero-content {
+        max-width: 100%;
+    }
 
+    .hero h1 {
+        font-size: 40px;
+    }
 
-        <a
-            href="Asmita_Ghogare_Python_Developer_Resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn primary-btn">
+    .hero h2 {
+        font-size: 21px;
+    }
 
-            View Resume
+    .hero-description {
+        font-size: 16px;
+    }
 
-        </a>
+    .hero-buttons {
+        justify-content: center;
+    }
 
-    </section>
+    .profile-photo {
+        width: 175px;
+        height: 175px;
+    }
 
+    .section {
+        padding: 65px 6%;
+    }
 
-    <!-- ================= CONTACT ================= -->
+    .section-heading h2 {
+        font-size: 30px;
+    }
 
-    <section id="contact" class="section contact-section">
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
-        <div class="section-heading">
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
 
-            <p class="eyebrow">
-                CONTACT
-            </p>
 
-            <h2>
-                Let's Connect
-            </h2>
+/* =========================================================
+   SMALL PHONES
+========================================================= */
 
-            <p>
-                I am interested in Python development opportunities,
-                internships, software projects, and professional connections.
-            </p>
+@media (max-width: 450px) {
 
-        </div>
+    .hero h1 {
+        font-size: 34px;
+    }
 
+    .profile-photo {
+        width: 150px;
+        height: 150px;
+    }
 
-        <div class="contact-links">
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
 
+    .hero-buttons {
+        width: 100%;
 
-            <!-- EMAIL -->
-            <!-- Replace with your actual email -->
+        flex-direction: column;
+    }
 
-            <a href="mailto:YOUR-EMAIL@example.com">
-                Email Me
-            </a>
+    .hero-buttons .btn {
+        width: 100%;
+        text-align: center;
+    }
 
+    .contact-links {
+        flex-direction: column;
+    }
 
-            <!-- GITHUB -->
-
-            <a
-                href="https://github.com/asmitaghogare8-bot"
-                target="_blank"
-                rel="noopener noreferrer">
-
-                GitHub
-
-            </a>
-
-
-            <!-- LINKEDIN -->
-            <!-- Replace with your actual LinkedIn profile link -->
-
-            <a
-                href="YOUR-LINKEDIN-PROFILE-LINK"
-                target="_blank"
-                rel="noopener noreferrer">
-
-                LinkedIn
-
-            </a>
-
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= FOOTER ================= -->
-
-    <footer>
-
-        <p>
-            © 2026 Asmita Ghogare. Built with Python, HTML and CSS.
-        </p>
-
-    </footer>
-
-
-</body>
-
-</html>
+    .contact-links a {
+        width: 100%;
+    }
+}
